@@ -7,16 +7,32 @@ Think as the reverse of [docco](https://github.com/jashkenas/docco). You write a
 unlit README.md > index.js
 ```
 
-This README.md file is the source code of `unlit` itself.
+## The Code
+
+This is the source code of `unlit` itself.
+
+#### Dependencies
+
+Basically it uses `gfm-code-blocks` to get the code blocks from markdown:
 
 ```js
-var Readable = require('stream').Readable
 var fs = require('fs')
 var path = require('path')
 var codeBlocks = require('gfm-code-blocks')
+```
 
+#### Streaming
+
+The stream/pipe stuff is from https://github.com/substack/stream-handbook#pipe:
+
+```js
+var Readable = require('stream').Readable
 var rs = Readable()
+```
 
+#### Test if the given file name exists:
+
+```js
 var filename = path.join(process.cwd(), process.argv[2])
 try {
   var stats = fs.lstatSync(filename)
@@ -29,6 +45,11 @@ try {
   process.exit()
 }
 
+```
+
+####  Read the file and push to the `stdout`:
+
+```js
 rs._read = function () {
   var content = fs.readFileSync(filename)
   codeBlocks(content.toString()).forEach(function (block) {
@@ -40,3 +61,7 @@ rs._read = function () {
 
 rs.pipe(process.stdout)
 ```
+
+## License
+
+MIT

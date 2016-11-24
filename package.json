@@ -1,18 +1,22 @@
 {
   "name": "unlit",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Remove literature: extract code from markdown files",
   "main": "index.js",
   "bin": {
     "unlit": "bin/unlit"
   },
   "scripts": {
-    "build": "./bin/unlit README.md > next.js && mv next.js index.js"
+    "build": "./bin/unlit README.md > next.js && mv next.js index.js",
+    "test": "echo 'no tests :-('"
   },
   "keywords": [],
   "author": "danigb",
   "license": "MIT",
   "dependencies": {
     "gfm-code-blocks": "^0.3.0"
+  },
+  "standard": {
+    "ignore": "README.md"
   }
 }

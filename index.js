@@ -1,10 +1,8 @@
-var Readable = require('stream').Readable
 var fs = require('fs')
 var path = require('path')
 var codeBlocks = require('gfm-code-blocks')
-
+var Readable = require('stream').Readable
 var rs = Readable()
-
 var filename = path.join(process.cwd(), process.argv[2])
 try {
   var stats = fs.lstatSync(filename)
@@ -16,7 +14,6 @@ try {
   console.log('File ' + filename + ' not found.', e)
   process.exit()
 }
-
 rs._read = function () {
   var content = fs.readFileSync(filename)
   codeBlocks(content.toString()).forEach(function (block) {
