@@ -4,12 +4,14 @@
   "description": "Remove literature: extract code from markdown files",
   "main": "index.js",
   "bin": {
-    "unlit": "bin/unlit.js"
+    "unlit": "bin/unlit"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "./bin/unlit README.md > next.js && mv next.js index.js"
+  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "danigb",
+  "license": "MIT",
   "dependencies": {
     "gfm-code-blocks": "^0.3.0"
   }

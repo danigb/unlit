@@ -27,3 +27,4 @@ rs._read = function () {
 }
 
 rs.pipe(process.stdout)
+
