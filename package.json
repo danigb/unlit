@@ -1,0 +1,16 @@
+{
+  "name": "unlit",
+  "version": "1.0.0",
+  "description": "Remove literature: extract code from markdown files",
+  "main": "index.js",
+  "bin": {
+    "unlit": "bin/unlit.js"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gfm-code-blocks": "^0.3.0"
+  }
+}
